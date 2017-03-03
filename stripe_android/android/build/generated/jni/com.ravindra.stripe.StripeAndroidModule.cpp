@@ -1,6 +1,6 @@
 /**
  * Appcelerator Titanium Mobile
- * Copyright (c) 2011-2013 by Appcelerator, Inc. All Rights Reserved.
+ * Copyright (c) 2011-2016 by Appcelerator, Inc. All Rights Reserved.
  * Licensed under the terms of the Apache Public License
  * Please see the LICENSE included with this distribution for details.
  */
@@ -28,76 +28,70 @@
 
 using namespace v8;
 
-		namespace com {
-		namespace ravindra {
-		namespace stripe {
+namespace com {
+namespace ravindra {
+namespace stripe {
 
 
-Persistent<FunctionTemplate> StripeAndroidModule::proxyTemplate = Persistent<FunctionTemplate>();
+Persistent<FunctionTemplate> StripeAndroidModule::proxyTemplate;
 jclass StripeAndroidModule::javaClass = NULL;
 
 StripeAndroidModule::StripeAndroidModule(jobject javaObject) : titanium::Proxy(javaObject)
 {
 }
 
-void StripeAndroidModule::bindProxy(Handle<Object> exports)
+void StripeAndroidModule::bindProxy(Local<Object> exports, Local<Context> context)
 {
-	if (proxyTemplate.IsEmpty()) {
-		getProxyTemplate();
-	}
+	Isolate* isolate = context->GetIsolate();
 
-	// use symbol over string for efficiency
-	Handle<String> nameSymbol = String::NewSymbol("StripeAndroid");
-
-	Local<Function> proxyConstructor = proxyTemplate->GetFunction();
-	Local<Object> moduleInstance = proxyConstructor->NewInstance();
+	Local<FunctionTemplate> pt = getProxyTemplate(isolate);
+	Local<Function> proxyConstructor = pt->GetFunction(context).ToLocalChecked();
+	Local<String> nameSymbol = NEW_SYMBOL(isolate, "StripeAndroid"); // use symbol over string for efficiency
+	Local<Object> moduleInstance = proxyConstructor->NewInstance(context).ToLocalChecked();
 	exports->Set(nameSymbol, moduleInstance);
 }
 
-void StripeAndroidModule::dispose()
+void StripeAndroidModule::dispose(Isolate* isolate)
 {
 	LOGD(TAG, "dispose()");
 	if (!proxyTemplate.IsEmpty()) {
-		proxyTemplate.Dispose();
-		proxyTemplate = Persistent<FunctionTemplate>();
+		proxyTemplate.Reset();
 	}
 
-	titanium::KrollModule::dispose();
+	titanium::KrollModule::dispose(isolate);
 }
 
-Handle<FunctionTemplate> StripeAndroidModule::getProxyTemplate()
+Local<FunctionTemplate> StripeAndroidModule::getProxyTemplate(Isolate* isolate)
 {
 	if (!proxyTemplate.IsEmpty()) {
-		return proxyTemplate;
+		return proxyTemplate.Get(isolate);
 	}
 
 	LOGD(TAG, "GetProxyTemplate");
 
 	javaClass = titanium::JNIUtil::findClass("com/ravindra/stripe/StripeAndroidModule");
-	HandleScope scope;
+	EscapableHandleScope scope(isolate);
 
 	// use symbol over string for efficiency
-	Handle<String> nameSymbol = String::NewSymbol("StripeAndroid");
+	Local<String> nameSymbol = NEW_SYMBOL(isolate, "StripeAndroid");
 
-	Handle<FunctionTemplate> t = titanium::Proxy::inheritProxyTemplate(
-		titanium::KrollModule::getProxyTemplate()
+	Local<FunctionTemplate> t = titanium::Proxy::inheritProxyTemplate(isolate,
+		titanium::KrollModule::getProxyTemplate(isolate)
 , javaClass, nameSymbol);
 
-	proxyTemplate = Persistent<FunctionTemplate>::New(t);
-	proxyTemplate->Set(titanium::Proxy::inheritSymbol,
-		FunctionTemplate::New(titanium::Proxy::inherit<StripeAndroidModule>)->GetFunction());
+	proxyTemplate.Reset(isolate, t);
+	t->Set(titanium::Proxy::inheritSymbol.Get(isolate),
+		FunctionTemplate::New(isolate, titanium::Proxy::inherit<StripeAndroidModule>)->GetFunction());
 
-	titanium::ProxyFactory::registerProxyPair(javaClass, *proxyTemplate);
+	titanium::ProxyFactory::registerProxyPair(javaClass, *t);
 
 	// Method bindings --------------------------------------------------------
-	DEFINE_PROTOTYPE_METHOD(proxyTemplate, "setCard", StripeAndroidModule::setCard);
-	DEFINE_PROTOTYPE_METHOD(proxyTemplate, "requestForToken", StripeAndroidModule::requestForToken);
-	DEFINE_PROTOTYPE_METHOD(proxyTemplate, "example", StripeAndroidModule::example);
-	DEFINE_PROTOTYPE_METHOD(proxyTemplate, "createCard", StripeAndroidModule::createCard);
-	DEFINE_PROTOTYPE_METHOD(proxyTemplate, "setPublishingKey", StripeAndroidModule::setPublishingKey);
+	titanium::SetProtoMethod(isolate, t, "setCard", StripeAndroidModule::setCard);
+	titanium::SetProtoMethod(isolate, t, "requestForToken", StripeAndroidModule::requestForToken);
+	titanium::SetProtoMethod(isolate, t, "example", StripeAndroidModule::example);
 
-	Local<ObjectTemplate> prototypeTemplate = proxyTemplate->PrototypeTemplate();
-	Local<ObjectTemplate> instanceTemplate = proxyTemplate->InstanceTemplate();
+	Local<ObjectTemplate> prototypeTemplate = t->PrototypeTemplate();
+	Local<ObjectTemplate> instanceTemplate = t->InstanceTemplate();
 
 	// Delegate indexed property get and set to the Java proxy.
 	instanceTemplate->SetIndexedPropertyHandler(titanium::Proxy::getIndexedProperty,
@@ -106,29 +100,29 @@ Handle<FunctionTemplate> StripeAndroidModule::getProxyTemplate()
 	// Constants --------------------------------------------------------------
 
 	// Dynamic properties -----------------------------------------------------
-	instanceTemplate->SetAccessor(String::NewSymbol("exampleProp"),
-			StripeAndroidModule::getter_exampleProp
-			, StripeAndroidModule::setter_exampleProp
-, Handle<Value>(), DEFAULT);
-	instanceTemplate->SetAccessor(String::NewSymbol("createCard"),
-			titanium::Proxy::getProperty
-			, StripeAndroidModule::setter_createCard
-, Handle<Value>(), DEFAULT);
+	instanceTemplate->SetAccessor(NEW_SYMBOL(isolate, "exampleProp"),
+			StripeAndroidModule::getter_exampleProp,
+			StripeAndroidModule::setter_exampleProp,
+			Local<Value>(), DEFAULT,
+			static_cast<v8::PropertyAttribute>(v8::DontDelete)
+		);
 
 	// Accessors --------------------------------------------------------------
 
-	return proxyTemplate;
+	return scope.Escape(t);
 }
 
 // Methods --------------------------------------------------------------------
-Handle<Value> StripeAndroidModule::setCard(const Arguments& args)
+void StripeAndroidModule::setCard(const FunctionCallbackInfo<Value>& args)
 {
 	LOGD(TAG, "setCard()");
-	HandleScope scope;
+	Isolate* isolate = args.GetIsolate();
+	HandleScope scope(isolate);
 
 	JNIEnv *env = titanium::JNIScope::getEnv();
 	if (!env) {
-		return titanium::JSException::GetJNIEnvironmentError();
+		titanium::JSException::GetJNIEnvironmentError(isolate);
+		return;
 	}
 	static jmethodID methodID = NULL;
 	if (!methodID) {
@@ -136,16 +130,24 @@ Handle<Value> StripeAndroidModule::setCard(const Arguments& args)
 		if (!methodID) {
 			const char *error = "Couldn't find proxy method 'setCard' with signature '(Ljava/util/HashMap;)Z'";
 			LOGE(TAG, error);
-				return titanium::JSException::Error(error);
+				titanium::JSException::Error(isolate, error);
+				return;
 		}
 	}
 
-	titanium::Proxy* proxy = titanium::Proxy::unwrap(args.Holder());
+	Local<Object> holder = args.Holder();
+	// If holder isn't the JavaObject wrapper we expect, look up the prototype chain
+	if (!JavaObject::isJavaObject(holder)) {
+		holder = holder->FindInstanceInPrototypeChain(getProxyTemplate(isolate));
+	}
+
+	titanium::Proxy* proxy = titanium::Proxy::unwrap(holder);
 
 	if (args.Length() < 1) {
 		char errorStringBuffer[100];
 		sprintf(errorStringBuffer, "setCard: Invalid number of arguments. Expected 1 but got %d", args.Length());
-		return ThrowException(Exception::Error(String::New(errorStringBuffer)));
+		titanium::JSException::Error(isolate, errorStringBuffer);
+		return;
 	}
 
 	jvalue jArguments[1];
@@ -154,11 +156,13 @@ Handle<Value> StripeAndroidModule::setCard(const Arguments& args)
 
 
 	bool isNew_0;
-	
+
 	if (!args[0]->IsNull()) {
 		Local<Value> arg_0 = args[0];
 		jArguments[0].l =
-			titanium::TypeConverter::jsValueToJavaObject(env, arg_0, &isNew_0);
+			titanium::TypeConverter::jsValueToJavaObject(
+				isolate,
+				env, arg_0, &isNew_0);
 	} else {
 		jArguments[0].l = NULL;
 	}
@@ -180,27 +184,29 @@ Handle<Value> StripeAndroidModule::setCard(const Arguments& args)
 
 
 	if (env->ExceptionCheck()) {
-		Handle<Value> jsException = titanium::JSException::fromJavaException();
+		Local<Value> jsException = titanium::JSException::fromJavaException(isolate);
 		env->ExceptionClear();
-		return jsException;
+		return;
 	}
 
 
-	Handle<Boolean> v8Result = titanium::TypeConverter::javaBooleanToJsBoolean(env, jResult);
+	Local<Boolean> v8Result = titanium::TypeConverter::javaBooleanToJsBoolean(isolate, env, jResult);
 
 
 
-	return v8Result;
+	args.GetReturnValue().Set(v8Result);
 
 }
-Handle<Value> StripeAndroidModule::requestForToken(const Arguments& args)
+void StripeAndroidModule::requestForToken(const FunctionCallbackInfo<Value>& args)
 {
 	LOGD(TAG, "requestForToken()");
-	HandleScope scope;
+	Isolate* isolate = args.GetIsolate();
+	HandleScope scope(isolate);
 
 	JNIEnv *env = titanium::JNIScope::getEnv();
 	if (!env) {
-		return titanium::JSException::GetJNIEnvironmentError();
+		titanium::JSException::GetJNIEnvironmentError(isolate);
+		return;
 	}
 	static jmethodID methodID = NULL;
 	if (!methodID) {
@@ -208,16 +214,24 @@ Handle<Value> StripeAndroidModule::requestForToken(const Arguments& args)
 		if (!methodID) {
 			const char *error = "Couldn't find proxy method 'requestForToken' with signature '(Ljava/util/HashMap;)V'";
 			LOGE(TAG, error);
-				return titanium::JSException::Error(error);
+				titanium::JSException::Error(isolate, error);
+				return;
 		}
 	}
 
-	titanium::Proxy* proxy = titanium::Proxy::unwrap(args.Holder());
+	Local<Object> holder = args.Holder();
+	// If holder isn't the JavaObject wrapper we expect, look up the prototype chain
+	if (!JavaObject::isJavaObject(holder)) {
+		holder = holder->FindInstanceInPrototypeChain(getProxyTemplate(isolate));
+	}
+
+	titanium::Proxy* proxy = titanium::Proxy::unwrap(holder);
 
 	if (args.Length() < 1) {
 		char errorStringBuffer[100];
 		sprintf(errorStringBuffer, "requestForToken: Invalid number of arguments. Expected 1 but got %d", args.Length());
-		return ThrowException(Exception::Error(String::New(errorStringBuffer)));
+		titanium::JSException::Error(isolate, errorStringBuffer);
+		return;
 	}
 
 	jvalue jArguments[1];
@@ -226,11 +240,13 @@ Handle<Value> StripeAndroidModule::requestForToken(const Arguments& args)
 
 
 	bool isNew_0;
-	
+
 	if (!args[0]->IsNull()) {
 		Local<Value> arg_0 = args[0];
 		jArguments[0].l =
-			titanium::TypeConverter::jsValueToJavaObject(env, arg_0, &isNew_0);
+			titanium::TypeConverter::jsValueToJavaObject(
+				isolate,
+				env, arg_0, &isNew_0);
 	} else {
 		jArguments[0].l = NULL;
 	}
@@ -250,24 +266,26 @@ Handle<Value> StripeAndroidModule::requestForToken(const Arguments& args)
 
 
 	if (env->ExceptionCheck()) {
-		titanium::JSException::fromJavaException();
+		titanium::JSException::fromJavaException(isolate);
 		env->ExceptionClear();
 	}
 
 
 
 
-	return v8::Undefined();
+	args.GetReturnValue().Set(v8::Undefined(isolate));
 
 }
-Handle<Value> StripeAndroidModule::example(const Arguments& args)
+void StripeAndroidModule::example(const FunctionCallbackInfo<Value>& args)
 {
 	LOGD(TAG, "example()");
-	HandleScope scope;
+	Isolate* isolate = args.GetIsolate();
+	HandleScope scope(isolate);
 
 	JNIEnv *env = titanium::JNIScope::getEnv();
 	if (!env) {
-		return titanium::JSException::GetJNIEnvironmentError();
+		titanium::JSException::GetJNIEnvironmentError(isolate);
+		return;
 	}
 	static jmethodID methodID = NULL;
 	if (!methodID) {
@@ -275,11 +293,18 @@ Handle<Value> StripeAndroidModule::example(const Arguments& args)
 		if (!methodID) {
 			const char *error = "Couldn't find proxy method 'example' with signature '()Ljava/lang/String;'";
 			LOGE(TAG, error);
-				return titanium::JSException::Error(error);
+				titanium::JSException::Error(isolate, error);
+				return;
 		}
 	}
 
-	titanium::Proxy* proxy = titanium::Proxy::unwrap(args.Holder());
+	Local<Object> holder = args.Holder();
+	// If holder isn't the JavaObject wrapper we expect, look up the prototype chain
+	if (!JavaObject::isJavaObject(holder)) {
+		holder = holder->FindInstanceInPrototypeChain(getProxyTemplate(isolate));
+	}
+
+	titanium::Proxy* proxy = titanium::Proxy::unwrap(holder);
 
 	jvalue* jArguments = 0;
 
@@ -295,171 +320,36 @@ Handle<Value> StripeAndroidModule::example(const Arguments& args)
 
 
 	if (env->ExceptionCheck()) {
-		Handle<Value> jsException = titanium::JSException::fromJavaException();
+		Local<Value> jsException = titanium::JSException::fromJavaException(isolate);
 		env->ExceptionClear();
-		return jsException;
+		return;
 	}
 
 	if (jResult == NULL) {
-		return Null();
+		args.GetReturnValue().Set(Null(isolate));
+		return;
 	}
 
-	Handle<Value> v8Result = titanium::TypeConverter::javaStringToJsString(env, jResult);
+	Local<Value> v8Result = titanium::TypeConverter::javaStringToJsString(isolate, env, jResult);
 
 	env->DeleteLocalRef(jResult);
 
 
-	return v8Result;
-
-}
-Handle<Value> StripeAndroidModule::createCard(const Arguments& args)
-{
-	LOGD(TAG, "createCard()");
-	HandleScope scope;
-
-	JNIEnv *env = titanium::JNIScope::getEnv();
-	if (!env) {
-		return titanium::JSException::GetJNIEnvironmentError();
-	}
-	static jmethodID methodID = NULL;
-	if (!methodID) {
-		methodID = env->GetMethodID(StripeAndroidModule::javaClass, "createCard", "(Ljava/util/HashMap;)Z");
-		if (!methodID) {
-			const char *error = "Couldn't find proxy method 'createCard' with signature '(Ljava/util/HashMap;)Z'";
-			LOGE(TAG, error);
-				return titanium::JSException::Error(error);
-		}
-	}
-
-	titanium::Proxy* proxy = titanium::Proxy::unwrap(args.Holder());
-
-	if (args.Length() < 1) {
-		char errorStringBuffer[100];
-		sprintf(errorStringBuffer, "createCard: Invalid number of arguments. Expected 1 but got %d", args.Length());
-		return ThrowException(Exception::Error(String::New(errorStringBuffer)));
-	}
-
-	jvalue jArguments[1];
-
-
-
-
-	bool isNew_0;
-	
-	if (!args[0]->IsNull()) {
-		Local<Value> arg_0 = args[0];
-		jArguments[0].l =
-			titanium::TypeConverter::jsValueToJavaObject(env, arg_0, &isNew_0);
-	} else {
-		jArguments[0].l = NULL;
-	}
-
-	jobject javaProxy = proxy->getJavaObject();
-	jboolean jResult = (jboolean)env->CallBooleanMethodA(javaProxy, methodID, jArguments);
-
-
-
-	if (!JavaObject::useGlobalRefs) {
-		env->DeleteLocalRef(javaProxy);
-	}
-
-
-
-			if (isNew_0) {
-				env->DeleteLocalRef(jArguments[0].l);
-			}
-
-
-	if (env->ExceptionCheck()) {
-		Handle<Value> jsException = titanium::JSException::fromJavaException();
-		env->ExceptionClear();
-		return jsException;
-	}
-
-
-	Handle<Boolean> v8Result = titanium::TypeConverter::javaBooleanToJsBoolean(env, jResult);
-
-
-
-	return v8Result;
-
-}
-Handle<Value> StripeAndroidModule::setPublishingKey(const Arguments& args)
-{
-	LOGD(TAG, "setPublishingKey()");
-	HandleScope scope;
-
-	JNIEnv *env = titanium::JNIScope::getEnv();
-	if (!env) {
-		return titanium::JSException::GetJNIEnvironmentError();
-	}
-	static jmethodID methodID = NULL;
-	if (!methodID) {
-		methodID = env->GetMethodID(StripeAndroidModule::javaClass, "setPublishingKey", "(Ljava/lang/String;)V");
-		if (!methodID) {
-			const char *error = "Couldn't find proxy method 'setPublishingKey' with signature '(Ljava/lang/String;)V'";
-			LOGE(TAG, error);
-				return titanium::JSException::Error(error);
-		}
-	}
-
-	titanium::Proxy* proxy = titanium::Proxy::unwrap(args.Holder());
-
-	if (args.Length() < 1) {
-		char errorStringBuffer[100];
-		sprintf(errorStringBuffer, "setPublishingKey: Invalid number of arguments. Expected 1 but got %d", args.Length());
-		return ThrowException(Exception::Error(String::New(errorStringBuffer)));
-	}
-
-	jvalue jArguments[1];
-
-
-
-
-	
-	
-	if (!args[0]->IsNull()) {
-		Local<Value> arg_0 = args[0];
-		jArguments[0].l =
-			titanium::TypeConverter::jsValueToJavaString(env, arg_0);
-	} else {
-		jArguments[0].l = NULL;
-	}
-
-	jobject javaProxy = proxy->getJavaObject();
-	env->CallVoidMethodA(javaProxy, methodID, jArguments);
-
-	if (!JavaObject::useGlobalRefs) {
-		env->DeleteLocalRef(javaProxy);
-	}
-
-
-
-				env->DeleteLocalRef(jArguments[0].l);
-
-
-	if (env->ExceptionCheck()) {
-		titanium::JSException::fromJavaException();
-		env->ExceptionClear();
-	}
-
-
-
-
-	return v8::Undefined();
+	args.GetReturnValue().Set(v8Result);
 
 }
 
 // Dynamic property accessors -------------------------------------------------
 
-Handle<Value> StripeAndroidModule::getter_exampleProp(Local<String> property, const AccessorInfo& info)
+void StripeAndroidModule::getter_exampleProp(Local<Name> property, const PropertyCallbackInfo<Value>& args)
 {
-	LOGD(TAG, "get exampleProp");
-	HandleScope scope;
+	Isolate* isolate = args.GetIsolate();
+	HandleScope scope(isolate);
 
 	JNIEnv *env = titanium::JNIScope::getEnv();
 	if (!env) {
-		return titanium::JSException::GetJNIEnvironmentError();
+		titanium::JSException::GetJNIEnvironmentError(isolate);
+		return;
 	}
 	static jmethodID methodID = NULL;
 	if (!methodID) {
@@ -467,14 +357,16 @@ Handle<Value> StripeAndroidModule::getter_exampleProp(Local<String> property, co
 		if (!methodID) {
 			const char *error = "Couldn't find proxy method 'getExampleProp' with signature '()Ljava/lang/String;'";
 			LOGE(TAG, error);
-				return titanium::JSException::Error(error);
+				titanium::JSException::Error(isolate, error);
+				return;
 		}
 	}
 
-	titanium::Proxy* proxy = titanium::Proxy::unwrap(info.Holder());
+	titanium::Proxy* proxy = titanium::Proxy::unwrap(args.Holder());
 
 	if (!proxy) {
-		return Undefined();
+		args.GetReturnValue().Set(Undefined(isolate));
+		return;
 	}
 
 	jvalue* jArguments = 0;
@@ -491,28 +383,29 @@ Handle<Value> StripeAndroidModule::getter_exampleProp(Local<String> property, co
 
 
 	if (env->ExceptionCheck()) {
-		Handle<Value> jsException = titanium::JSException::fromJavaException();
+		Local<Value> jsException = titanium::JSException::fromJavaException(isolate);
 		env->ExceptionClear();
-		return jsException;
+		return;
 	}
 
 	if (jResult == NULL) {
-		return Null();
+		args.GetReturnValue().Set(Null(isolate));
+		return;
 	}
 
-	Handle<Value> v8Result = titanium::TypeConverter::javaStringToJsString(env, jResult);
+	Local<Value> v8Result = titanium::TypeConverter::javaStringToJsString(isolate, env, jResult);
 
 	env->DeleteLocalRef(jResult);
 
 
-	return v8Result;
+	args.GetReturnValue().Set(v8Result);
 
 }
 
-void StripeAndroidModule::setter_exampleProp(Local<String> property, Local<Value> value, const AccessorInfo& info)
+void StripeAndroidModule::setter_exampleProp(Local<Name> property, Local<Value> value, const PropertyCallbackInfo<void>& args)
 {
-	LOGD(TAG, "set exampleProp");
-	HandleScope scope;
+	Isolate* isolate = args.GetIsolate();
+	HandleScope scope(isolate);
 
 	JNIEnv *env = titanium::JNIScope::getEnv();
 	if (!env) {
@@ -529,7 +422,7 @@ void StripeAndroidModule::setter_exampleProp(Local<String> property, Local<Value
 		}
 	}
 
-	titanium::Proxy* proxy = titanium::Proxy::unwrap(info.Holder());
+	titanium::Proxy* proxy = titanium::Proxy::unwrap(args.Holder());
 	if (!proxy) {
 		return;
 	}
@@ -537,11 +430,13 @@ void StripeAndroidModule::setter_exampleProp(Local<String> property, Local<Value
 	jvalue jArguments[1];
 
 	
-	
+
 	if (!value->IsNull()) {
 		Local<Value> arg_0 = value;
 		jArguments[0].l =
-			titanium::TypeConverter::jsValueToJavaString(env, arg_0);
+			titanium::TypeConverter::jsValueToJavaString(
+				isolate,
+				env, arg_0);
 	} else {
 		jArguments[0].l = NULL;
 	}
@@ -559,7 +454,7 @@ void StripeAndroidModule::setter_exampleProp(Local<String> property, Local<Value
 
 
 	if (env->ExceptionCheck()) {
-		titanium::JSException::fromJavaException();
+		titanium::JSException::fromJavaException(isolate);
 		env->ExceptionClear();
 	}
 
@@ -570,70 +465,6 @@ void StripeAndroidModule::setter_exampleProp(Local<String> property, Local<Value
 
 
 
-void StripeAndroidModule::setter_createCard(Local<String> property, Local<Value> value, const AccessorInfo& info)
-{
-	LOGD(TAG, "set createCard");
-	HandleScope scope;
-
-	JNIEnv *env = titanium::JNIScope::getEnv();
-	if (!env) {
-		LOGE(TAG, "Failed to get environment, createCard wasn't set");
-		return;
-	}
-
-	static jmethodID methodID = NULL;
-	if (!methodID) {
-		methodID = env->GetMethodID(StripeAndroidModule::javaClass, "createCard", "(Ljava/util/HashMap;)Z");
-		if (!methodID) {
-			const char *error = "Couldn't find proxy method 'createCard' with signature '(Ljava/util/HashMap;)Z'";
-			LOGE(TAG, error);
-		}
-	}
-
-	titanium::Proxy* proxy = titanium::Proxy::unwrap(info.Holder());
-	if (!proxy) {
-		return;
-	}
-
-	jvalue jArguments[1];
-
-	bool isNew_0;
-	
-	if (!value->IsNull()) {
-		Local<Value> arg_0 = value;
-		jArguments[0].l =
-			titanium::TypeConverter::jsValueToJavaObject(env, arg_0, &isNew_0);
-	} else {
-		jArguments[0].l = NULL;
-	}
-
-	jobject javaProxy = proxy->getJavaObject();
-	env->CallBooleanMethodA(javaProxy, methodID, jArguments);
-
-	if (!JavaObject::useGlobalRefs) {
-		env->DeleteLocalRef(javaProxy);
-	}
-
-
-
-			if (isNew_0) {
-				env->DeleteLocalRef(jArguments[0].l);
-			}
-
-
-	if (env->ExceptionCheck()) {
-		titanium::JSException::fromJavaException();
-		env->ExceptionClear();
-	}
-
-
-
-
-	Proxy::setProperty(property, value, info);
-}
-
-
-
-		} // stripe
-		} // ravindra
-		} // com
+} // stripe
+} // ravindra
+} // com

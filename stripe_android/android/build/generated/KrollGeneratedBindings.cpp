@@ -1,8 +1,8 @@
 /* C++ code produced by gperf version 3.0.3 */
-/* Command-line: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/gperf -L C++ -E -t /private/var/folders/db/wv9d79d533v2fglp_3mblcxw0000gn/T/Ravindra/stripe_android-generated/KrollGeneratedBindings.gperf  */
+/* Command-line: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/gperf -L C++ -E -t /private/var/folders/k4/q2t50fyn43l_l8b2t3kfy3wh0000gn/T/soheb/stripe_android-generated/KrollGeneratedBindings.gperf  */
 /* Computed positions: -k'' */
 
-#line 3 "/private/var/folders/db/wv9d79d533v2fglp_3mblcxw0000gn/T/Ravindra/stripe_android-generated/KrollGeneratedBindings.gperf"
+#line 3 "/private/var/folders/k4/q2t50fyn43l_l8b2t3kfy3wh0000gn/T/soheb/stripe_android-generated/KrollGeneratedBindings.gperf"
 
 
 #include <string.h>
@@ -13,7 +13,7 @@
 #include "com.ravindra.stripe.ExampleProxy.h"
 
 
-#line 14 "/private/var/folders/db/wv9d79d533v2fglp_3mblcxw0000gn/T/Ravindra/stripe_android-generated/KrollGeneratedBindings.gperf"
+#line 14 "/private/var/folders/k4/q2t50fyn43l_l8b2t3kfy3wh0000gn/T/soheb/stripe_android-generated/KrollGeneratedBindings.gperf"
 struct titanium::bindings::BindEntry;
 /* maximum key range = 8, duplicates = 0 */
 
@@ -50,10 +50,10 @@ StripeAndroidBindings::lookupGeneratedInit (register const char *str, register u
       {""}, {""}, {""}, {""}, {""}, {""}, {""}, {""}, {""},
       {""}, {""}, {""}, {""}, {""}, {""}, {""}, {""}, {""},
       {""}, {""}, {""}, {""}, {""},
-#line 17 "/private/var/folders/db/wv9d79d533v2fglp_3mblcxw0000gn/T/Ravindra/stripe_android-generated/KrollGeneratedBindings.gperf"
+#line 17 "/private/var/folders/k4/q2t50fyn43l_l8b2t3kfy3wh0000gn/T/soheb/stripe_android-generated/KrollGeneratedBindings.gperf"
       {"com.ravindra.stripe.ExampleProxy", ::com::ravindra::stripe::stripeandroid::ExampleProxy::bindProxy, ::com::ravindra::stripe::stripeandroid::ExampleProxy::dispose},
       {""}, {""}, {""}, {""}, {""}, {""},
-#line 16 "/private/var/folders/db/wv9d79d533v2fglp_3mblcxw0000gn/T/Ravindra/stripe_android-generated/KrollGeneratedBindings.gperf"
+#line 16 "/private/var/folders/k4/q2t50fyn43l_l8b2t3kfy3wh0000gn/T/soheb/stripe_android-generated/KrollGeneratedBindings.gperf"
       {"com.ravindra.stripe.StripeAndroidModule", ::com::ravindra::stripe::StripeAndroidModule::bindProxy, ::com::ravindra::stripe::StripeAndroidModule::dispose}
     };
 
@@ -71,5 +71,5 @@ StripeAndroidBindings::lookupGeneratedInit (register const char *str, register u
     }
   return 0;
 }
-#line 18 "/private/var/folders/db/wv9d79d533v2fglp_3mblcxw0000gn/T/Ravindra/stripe_android-generated/KrollGeneratedBindings.gperf"
+#line 18 "/private/var/folders/k4/q2t50fyn43l_l8b2t3kfy3wh0000gn/T/soheb/stripe_android-generated/KrollGeneratedBindings.gperf"
 

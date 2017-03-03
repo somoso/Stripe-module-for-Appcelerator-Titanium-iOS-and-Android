@@ -1,6 +1,6 @@
 /**
  * Appcelerator Titanium Mobile
- * Copyright (c) 2011-2013 by Appcelerator, Inc. All Rights Reserved.
+ * Copyright (c) 2011-2016 by Appcelerator, Inc. All Rights Reserved.
  * Licensed under the terms of the Apache Public License
  * Please see the LICENSE included with this distribution for details.
  */
@@ -11,38 +11,35 @@
 
 #include "Proxy.h"
 
-		namespace com {
-		namespace ravindra {
-		namespace stripe {
-
+namespace com {
+namespace ravindra {
+namespace stripe {
 
 class StripeAndroidModule : public titanium::Proxy
 {
 public:
 	explicit StripeAndroidModule(jobject javaObject);
 
-	static void bindProxy(v8::Handle<v8::Object> exports);
-	static v8::Handle<v8::FunctionTemplate> getProxyTemplate();
-	static void dispose();
+	static void bindProxy(v8::Local<v8::Object>, v8::Local<v8::Context>);
+	static v8::Local<v8::FunctionTemplate> getProxyTemplate(v8::Isolate*);
+	static void dispose(v8::Isolate*);
 
-	static v8::Persistent<v8::FunctionTemplate> proxyTemplate;
 	static jclass javaClass;
 
 private:
+	static v8::Persistent<v8::FunctionTemplate> proxyTemplate;
+
 	// Methods -----------------------------------------------------------
-	static v8::Handle<v8::Value> setCard(const v8::Arguments&);
-	static v8::Handle<v8::Value> requestForToken(const v8::Arguments&);
-	static v8::Handle<v8::Value> example(const v8::Arguments&);
-	static v8::Handle<v8::Value> createCard(const v8::Arguments&);
-	static v8::Handle<v8::Value> setPublishingKey(const v8::Arguments&);
+	static void setCard(const v8::FunctionCallbackInfo<v8::Value>&);
+	static void requestForToken(const v8::FunctionCallbackInfo<v8::Value>&);
+	static void example(const v8::FunctionCallbackInfo<v8::Value>&);
 
 	// Dynamic property accessors ----------------------------------------
-	static v8::Handle<v8::Value> getter_exampleProp(v8::Local<v8::String> property, const v8::AccessorInfo& info);
-	static void setter_exampleProp(v8::Local<v8::String> property, v8::Local<v8::Value> value, const v8::AccessorInfo& info);
-	static void setter_createCard(v8::Local<v8::String> property, v8::Local<v8::Value> value, const v8::AccessorInfo& info);
+	static void getter_exampleProp(v8::Local<v8::Name> name, const v8::PropertyCallbackInfo<v8::Value>& info);
+	static void setter_exampleProp(v8::Local<v8::Name> name, v8::Local<v8::Value> value, const v8::PropertyCallbackInfo<void>& info);
 
 };
 
-		} // stripe
-		} // ravindra
-		} // com
+} // stripe
+} // ravindra
+} // com

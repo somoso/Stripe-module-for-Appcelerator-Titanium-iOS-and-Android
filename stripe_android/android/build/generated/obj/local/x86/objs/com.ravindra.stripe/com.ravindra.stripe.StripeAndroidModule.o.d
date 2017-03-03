@@ -1,191 +1,164 @@
-/var/folders/db/wv9d79d533v2fglp_3mblcxw0000gn/T//Ravindra/stripe_android-generated/obj/local/x86/objs/com.ravindra.stripe/com.ravindra.stripe.StripeAndroidModule.o: \
+/var/folders/k4/q2t50fyn43l_l8b2t3kfy3wh0000gn/T//soheb/stripe_android-generated/obj/local/x86/objs/com.ravindra.stripe/com.ravindra.stripe.StripeAndroidModule.o: \
  jni/com.ravindra.stripe.StripeAndroidModule.cpp \
  jni/com.ravindra.stripe.StripeAndroidModule.h \
- /Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/jni.h \
- /Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/sys/cdefs.h \
- /Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/sys/cdefs_elf.h \
- /Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/android/api-level.h \
- /Users/Ravindra/android-ndk-r10e/sources/cxx-stl/stlport/stlport/stdarg.h \
- /Users/Ravindra/android-ndk-r10e/sources/cxx-stl/stlport/stlport/stl/_cprolog.h \
- /Users/Ravindra/android-ndk-r10e/sources/cxx-stl/stlport/stlport/stl/config/features.h \
- /Users/Ravindra/android-ndk-r10e/sources/cxx-stl/stlport/stlport/stl/_stlport_version.h \
- /Users/Ravindra/android-ndk-r10e/sources/cxx-stl/stlport/stlport/stl/config/user_config.h \
- /Users/Ravindra/android-ndk-r10e/sources/cxx-stl/stlport/stlport/stl/config/compat.h \
- /Users/Ravindra/android-ndk-r10e/sources/cxx-stl/stlport/stlport/stl/config/host.h \
- /Users/Ravindra/android-ndk-r10e/sources/cxx-stl/stlport/stlport/stl/config/_system.h \
- /Users/Ravindra/android-ndk-r10e/sources/cxx-stl/stlport/stlport/stl/config/_android.h \
- /Users/Ravindra/android-ndk-r10e/sources/cxx-stl/stlport/stlport/stl/config/_gcc.h \
- /Users/Ravindra/android-ndk-r10e/sources/cxx-stl/stlport/stlport/stl/config/stl_confix.h \
- /Users/Ravindra/android-ndk-r10e/sources/cxx-stl/stlport/stlport/stl/config/_native_headers.h \
- /Users/Ravindra/android-ndk-r10e/sources/cxx-stl/stlport/stlport/stl/_epilog.h \
- /Users/Ravindra/android-ndk-r10e/sources/cxx-stl/stlport/stlport/stl/_config_compat_post.h \
- /Users/Ravindra/Library/Application\ Support/Titanium/mobilesdk/osx/4.0.0.GA/android/native/include/Proxy.h \
- /Users/Ravindra/Library/Application\ Support/Titanium/mobilesdk/osx/4.0.0.GA/android/native/include/v8.h \
- /Users/Ravindra/Library/Application\ Support/Titanium/mobilesdk/osx/4.0.0.GA/android/native/include/v8stdint.h \
- /Users/Ravindra/android-ndk-r10e/sources/cxx-stl/stlport/stlport/stddef.h \
- /Users/Ravindra/android-ndk-r10e/sources/cxx-stl/stlport/stlport/stdio.h \
- /Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/../include/stdio.h \
- /Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/sys/types.h \
- /Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/stdint.h \
- /Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/sys/_types.h \
- /Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/machine/_types.h \
- /Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/linux/posix_types.h \
- /Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/linux/stddef.h \
- /Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/linux/compiler.h \
- /Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/asm/posix_types.h \
- /Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/asm/posix_types_32.h \
- /Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/asm/types.h \
- /Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/linux/types.h \
- /Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/machine/kernel.h \
- /Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/sys/sysmacros.h \
- /Users/Ravindra/Library/Application\ Support/Titanium/mobilesdk/osx/4.0.0.GA/android/native/include/JavaObject.h \
- /Users/Ravindra/android-ndk-r10e/sources/cxx-stl/stlport/stlport/assert.h \
- /Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/../include/assert.h \
- /Users/Ravindra/Library/Application\ Support/Titanium/mobilesdk/osx/4.0.0.GA/android/native/include/EventEmitter.h \
- /Users/Ravindra/Library/Application\ Support/Titanium/mobilesdk/osx/4.0.0.GA/android/native/include/NativeObject.h \
- /Users/Ravindra/Library/Application\ Support/Titanium/mobilesdk/osx/4.0.0.GA/android/native/include/AndroidUtil.h \
- /Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/android/log.h \
- /Users/Ravindra/android-ndk-r10e/sources/cxx-stl/stlport/stlport/stdlib.h \
- /Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/../include/stdlib.h \
- /Users/Ravindra/android-ndk-r10e/sources/cxx-stl/stlport/stlport/string.h \
- /Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/../include/string.h \
- /Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/malloc.h \
- /Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/alloca.h \
- /Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/strings.h \
- /Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/memory.h \
- /Users/Ravindra/Library/Application\ Support/Titanium/mobilesdk/osx/4.0.0.GA/android/native/include/EventEmitter.h \
- /Users/Ravindra/Library/Application\ Support/Titanium/mobilesdk/osx/4.0.0.GA/android/native/include/JNIUtil.h \
- /Users/Ravindra/Library/Application\ Support/Titanium/mobilesdk/osx/4.0.0.GA/android/native/include/AndroidUtil.h \
- /Users/Ravindra/Library/Application\ Support/Titanium/mobilesdk/osx/4.0.0.GA/android/native/include/JSException.h \
- /Users/Ravindra/Library/Application\ Support/Titanium/mobilesdk/osx/4.0.0.GA/android/native/include/ProxyFactory.h \
- /Users/Ravindra/Library/Application\ Support/Titanium/mobilesdk/osx/4.0.0.GA/android/native/include/TypeConverter.h \
- /Users/Ravindra/Library/Application\ Support/Titanium/mobilesdk/osx/4.0.0.GA/android/native/include/V8Util.h \
+ /Users/soheb/Library/Application\ Support/Titanium/mobilesdk/osx/6.0.3.v20170227153652/android/native/include/Proxy.h \
+ /Users/soheb/Library/Application\ Support/Titanium/mobilesdk/osx/6.0.3.v20170227153652/android/native/include/v8.h \
+ /Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/../../android/support/include/stdint.h \
+ /Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/../../android/support/include/stdio.h \
+ /Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/../../android/support/include/wchar.h \
+ /Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/../../android/support/include/wctype.h \
+ /Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/../../android/support/include/xlocale.h \
+ /Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/utility \
+ /Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/__config \
+ /Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/__tuple \
+ /Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/cstddef \
+ /Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/type_traits \
+ /Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/vector \
+ /Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/__bit_reference \
+ /Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/algorithm \
+ /Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/initializer_list \
+ /Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/cstring \
+ /Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/../../android/support/include/string.h \
+ /Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/memory \
+ /Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/typeinfo \
+ /Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/exception \
+ /Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/cstdint \
+ /Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/new \
+ /Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/limits \
+ /Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/iterator \
+ /Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/__functional_base \
+ /Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/iosfwd \
+ /Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/tuple \
+ /Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/cassert \
+ /Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/atomic \
+ /Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/climits \
+ /Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/stdexcept \
+ /Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/__split_buffer \
+ /Users/soheb/Library/Application\ Support/Titanium/mobilesdk/osx/6.0.3.v20170227153652/android/native/include/v8-version.h \
+ /Users/soheb/Library/Application\ Support/Titanium/mobilesdk/osx/6.0.3.v20170227153652/android/native/include/v8config.h \
+ /Users/soheb/Library/Application\ Support/Titanium/mobilesdk/osx/6.0.3.v20170227153652/android/native/include/JavaObject.h \
+ /Users/soheb/Library/Application\ Support/Titanium/mobilesdk/osx/6.0.3.v20170227153652/android/native/include/EventEmitter.h \
+ /Users/soheb/Library/Application\ Support/Titanium/mobilesdk/osx/6.0.3.v20170227153652/android/native/include/NativeObject.h \
+ /Users/soheb/Library/Application\ Support/Titanium/mobilesdk/osx/6.0.3.v20170227153652/android/native/include/AndroidUtil.h \
+ /Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/../../android/support/include/stdlib.h \
+ /Users/soheb/Library/Application\ Support/Titanium/mobilesdk/osx/6.0.3.v20170227153652/android/native/include/EventEmitter.h \
+ /Users/soheb/Library/Application\ Support/Titanium/mobilesdk/osx/6.0.3.v20170227153652/android/native/include/JNIUtil.h \
+ /Users/soheb/Library/Application\ Support/Titanium/mobilesdk/osx/6.0.3.v20170227153652/android/native/include/AndroidUtil.h \
+ /Users/soheb/Library/Application\ Support/Titanium/mobilesdk/osx/6.0.3.v20170227153652/android/native/include/JSException.h \
+ /Users/soheb/Library/Application\ Support/Titanium/mobilesdk/osx/6.0.3.v20170227153652/android/native/include/ProxyFactory.h \
+ /Users/soheb/Library/Application\ Support/Titanium/mobilesdk/osx/6.0.3.v20170227153652/android/native/include/TypeConverter.h \
+ /Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/map \
+ /Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/__tree \
+ /Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/functional \
+ /Users/soheb/Library/Application\ Support/Titanium/mobilesdk/osx/6.0.3.v20170227153652/android/native/include/V8Util.h \
  jni/com.ravindra.stripe.ExampleProxy.h \
- /Users/Ravindra/Library/Application\ Support/Titanium/mobilesdk/osx/4.0.0.GA/android/native/include/org.appcelerator.kroll.KrollModule.h \
- /Users/Ravindra/Library/Application\ Support/Titanium/mobilesdk/osx/4.0.0.GA/android/native/include/Proxy.h
+ /Users/soheb/Library/Application\ Support/Titanium/mobilesdk/osx/6.0.3.v20170227153652/android/native/include/org.appcelerator.kroll.KrollModule.h \
+ /Users/soheb/Library/Application\ Support/Titanium/mobilesdk/osx/6.0.3.v20170227153652/android/native/include/Proxy.h
 
 jni/com.ravindra.stripe.StripeAndroidModule.h:
 
-/Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/jni.h:
+/Users/soheb/Library/Application\ Support/Titanium/mobilesdk/osx/6.0.3.v20170227153652/android/native/include/Proxy.h:
 
-/Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/sys/cdefs.h:
+/Users/soheb/Library/Application\ Support/Titanium/mobilesdk/osx/6.0.3.v20170227153652/android/native/include/v8.h:
 
-/Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/sys/cdefs_elf.h:
+/Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/../../android/support/include/stdint.h:
 
-/Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/android/api-level.h:
+/Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/../../android/support/include/stdio.h:
 
-/Users/Ravindra/android-ndk-r10e/sources/cxx-stl/stlport/stlport/stdarg.h:
+/Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/../../android/support/include/wchar.h:
 
-/Users/Ravindra/android-ndk-r10e/sources/cxx-stl/stlport/stlport/stl/_cprolog.h:
+/Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/../../android/support/include/wctype.h:
 
-/Users/Ravindra/android-ndk-r10e/sources/cxx-stl/stlport/stlport/stl/config/features.h:
+/Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/../../android/support/include/xlocale.h:
 
-/Users/Ravindra/android-ndk-r10e/sources/cxx-stl/stlport/stlport/stl/_stlport_version.h:
+/Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/utility:
 
-/Users/Ravindra/android-ndk-r10e/sources/cxx-stl/stlport/stlport/stl/config/user_config.h:
+/Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/__config:
 
-/Users/Ravindra/android-ndk-r10e/sources/cxx-stl/stlport/stlport/stl/config/compat.h:
+/Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/__tuple:
 
-/Users/Ravindra/android-ndk-r10e/sources/cxx-stl/stlport/stlport/stl/config/host.h:
+/Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/cstddef:
 
-/Users/Ravindra/android-ndk-r10e/sources/cxx-stl/stlport/stlport/stl/config/_system.h:
+/Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/type_traits:
 
-/Users/Ravindra/android-ndk-r10e/sources/cxx-stl/stlport/stlport/stl/config/_android.h:
+/Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/vector:
 
-/Users/Ravindra/android-ndk-r10e/sources/cxx-stl/stlport/stlport/stl/config/_gcc.h:
+/Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/__bit_reference:
 
-/Users/Ravindra/android-ndk-r10e/sources/cxx-stl/stlport/stlport/stl/config/stl_confix.h:
+/Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/algorithm:
 
-/Users/Ravindra/android-ndk-r10e/sources/cxx-stl/stlport/stlport/stl/config/_native_headers.h:
+/Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/initializer_list:
 
-/Users/Ravindra/android-ndk-r10e/sources/cxx-stl/stlport/stlport/stl/_epilog.h:
+/Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/cstring:
 
-/Users/Ravindra/android-ndk-r10e/sources/cxx-stl/stlport/stlport/stl/_config_compat_post.h:
+/Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/../../android/support/include/string.h:
 
-/Users/Ravindra/Library/Application\ Support/Titanium/mobilesdk/osx/4.0.0.GA/android/native/include/Proxy.h:
+/Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/memory:
 
-/Users/Ravindra/Library/Application\ Support/Titanium/mobilesdk/osx/4.0.0.GA/android/native/include/v8.h:
+/Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/typeinfo:
 
-/Users/Ravindra/Library/Application\ Support/Titanium/mobilesdk/osx/4.0.0.GA/android/native/include/v8stdint.h:
+/Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/exception:
 
-/Users/Ravindra/android-ndk-r10e/sources/cxx-stl/stlport/stlport/stddef.h:
+/Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/cstdint:
 
-/Users/Ravindra/android-ndk-r10e/sources/cxx-stl/stlport/stlport/stdio.h:
+/Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/new:
 
-/Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/../include/stdio.h:
+/Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/limits:
 
-/Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/sys/types.h:
+/Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/iterator:
 
-/Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/stdint.h:
+/Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/__functional_base:
 
-/Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/sys/_types.h:
+/Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/iosfwd:
 
-/Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/machine/_types.h:
+/Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/tuple:
 
-/Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/linux/posix_types.h:
+/Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/cassert:
 
-/Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/linux/stddef.h:
+/Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/atomic:
 
-/Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/linux/compiler.h:
+/Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/climits:
 
-/Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/asm/posix_types.h:
+/Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/stdexcept:
 
-/Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/asm/posix_types_32.h:
+/Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/__split_buffer:
 
-/Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/asm/types.h:
+/Users/soheb/Library/Application\ Support/Titanium/mobilesdk/osx/6.0.3.v20170227153652/android/native/include/v8-version.h:
 
-/Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/linux/types.h:
+/Users/soheb/Library/Application\ Support/Titanium/mobilesdk/osx/6.0.3.v20170227153652/android/native/include/v8config.h:
 
-/Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/machine/kernel.h:
+/Users/soheb/Library/Application\ Support/Titanium/mobilesdk/osx/6.0.3.v20170227153652/android/native/include/JavaObject.h:
 
-/Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/sys/sysmacros.h:
+/Users/soheb/Library/Application\ Support/Titanium/mobilesdk/osx/6.0.3.v20170227153652/android/native/include/EventEmitter.h:
 
-/Users/Ravindra/Library/Application\ Support/Titanium/mobilesdk/osx/4.0.0.GA/android/native/include/JavaObject.h:
+/Users/soheb/Library/Application\ Support/Titanium/mobilesdk/osx/6.0.3.v20170227153652/android/native/include/NativeObject.h:
 
-/Users/Ravindra/android-ndk-r10e/sources/cxx-stl/stlport/stlport/assert.h:
+/Users/soheb/Library/Application\ Support/Titanium/mobilesdk/osx/6.0.3.v20170227153652/android/native/include/AndroidUtil.h:
 
-/Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/../include/assert.h:
+/Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/../../android/support/include/stdlib.h:
 
-/Users/Ravindra/Library/Application\ Support/Titanium/mobilesdk/osx/4.0.0.GA/android/native/include/EventEmitter.h:
+/Users/soheb/Library/Application\ Support/Titanium/mobilesdk/osx/6.0.3.v20170227153652/android/native/include/EventEmitter.h:
 
-/Users/Ravindra/Library/Application\ Support/Titanium/mobilesdk/osx/4.0.0.GA/android/native/include/NativeObject.h:
+/Users/soheb/Library/Application\ Support/Titanium/mobilesdk/osx/6.0.3.v20170227153652/android/native/include/JNIUtil.h:
 
-/Users/Ravindra/Library/Application\ Support/Titanium/mobilesdk/osx/4.0.0.GA/android/native/include/AndroidUtil.h:
+/Users/soheb/Library/Application\ Support/Titanium/mobilesdk/osx/6.0.3.v20170227153652/android/native/include/AndroidUtil.h:
 
-/Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/android/log.h:
+/Users/soheb/Library/Application\ Support/Titanium/mobilesdk/osx/6.0.3.v20170227153652/android/native/include/JSException.h:
 
-/Users/Ravindra/android-ndk-r10e/sources/cxx-stl/stlport/stlport/stdlib.h:
+/Users/soheb/Library/Application\ Support/Titanium/mobilesdk/osx/6.0.3.v20170227153652/android/native/include/ProxyFactory.h:
 
-/Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/../include/stdlib.h:
+/Users/soheb/Library/Application\ Support/Titanium/mobilesdk/osx/6.0.3.v20170227153652/android/native/include/TypeConverter.h:
 
-/Users/Ravindra/android-ndk-r10e/sources/cxx-stl/stlport/stlport/string.h:
+/Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/map:
 
-/Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/../include/string.h:
+/Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/__tree:
 
-/Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/malloc.h:
+/Users/soheb/android-ndk-r11c/sources/cxx-stl/llvm-libc++/libcxx/include/functional:
 
-/Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/alloca.h:
-
-/Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/strings.h:
-
-/Users/Ravindra/android-ndk-r10e/platforms/android-9/arch-x86/usr/include/memory.h:
-
-/Users/Ravindra/Library/Application\ Support/Titanium/mobilesdk/osx/4.0.0.GA/android/native/include/EventEmitter.h:
-
-/Users/Ravindra/Library/Application\ Support/Titanium/mobilesdk/osx/4.0.0.GA/android/native/include/JNIUtil.h:
-
-/Users/Ravindra/Library/Application\ Support/Titanium/mobilesdk/osx/4.0.0.GA/android/native/include/AndroidUtil.h:
-
-/Users/Ravindra/Library/Application\ Support/Titanium/mobilesdk/osx/4.0.0.GA/android/native/include/JSException.h:
-
-/Users/Ravindra/Library/Application\ Support/Titanium/mobilesdk/osx/4.0.0.GA/android/native/include/ProxyFactory.h:
-
-/Users/Ravindra/Library/Application\ Support/Titanium/mobilesdk/osx/4.0.0.GA/android/native/include/TypeConverter.h:
-
-/Users/Ravindra/Library/Application\ Support/Titanium/mobilesdk/osx/4.0.0.GA/android/native/include/V8Util.h:
+/Users/soheb/Library/Application\ Support/Titanium/mobilesdk/osx/6.0.3.v20170227153652/android/native/include/V8Util.h:
 
 jni/com.ravindra.stripe.ExampleProxy.h:
 
-/Users/Ravindra/Library/Application\ Support/Titanium/mobilesdk/osx/4.0.0.GA/android/native/include/org.appcelerator.kroll.KrollModule.h:
+/Users/soheb/Library/Application\ Support/Titanium/mobilesdk/osx/6.0.3.v20170227153652/android/native/include/org.appcelerator.kroll.KrollModule.h:
 
-/Users/Ravindra/Library/Application\ Support/Titanium/mobilesdk/osx/4.0.0.GA/android/native/include/Proxy.h:
+/Users/soheb/Library/Application\ Support/Titanium/mobilesdk/osx/6.0.3.v20170227153652/android/native/include/Proxy.h:
